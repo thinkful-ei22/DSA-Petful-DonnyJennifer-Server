@@ -26,7 +26,7 @@ app.get('/api/cat', (req,res) => {
     "story": "Thrown on the street"
 }`
 
-##Deleting:
+## Deleting:
 
 When a user clicks "Adopt!" a DELETE request is sent.  The DELETE request dequeues the first animal from the queue.
 
@@ -47,6 +47,8 @@ When a user clicks "Adopt!" a DELETE request is sent.  The DELETE request dequeu
     "breed": "Bengal",
     "story": "Thrown on the street"
 }`
+
+## Details
 
 **Target Audience:** Animal Lovers
 
