@@ -1,10 +1,10 @@
-#Petful Api
+# Petful Api
 
-##Data Structure:
+## Data Structure:
 
 Cats and dogs are stored in queues.
 
-##Getting:
+## Getting:
 
 A GET request will peek into the queue and return the first animal in the queue.
 
@@ -15,6 +15,7 @@ app.get('/api/cat', (req,res) => {
 });
 
 **Sample response (animal peeked):**
+
 `{
     "imageURL": "https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg",
     "imageDescription": "Orange bengal cat with black stripes lounging on concrete.",
@@ -36,6 +37,7 @@ When a user clicks "Adopt!" a DELETE request is sent.  The DELETE request dequeu
 });`
 
 **Sample response (animal deleted):**
+
 `{
     "imageURL": "https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg",
     "imageDescription": "Orange bengal cat with black stripes lounging on concrete.",
@@ -47,6 +49,9 @@ When a user clicks "Adopt!" a DELETE request is sent.  The DELETE request dequeu
 }`
 
 **Target Audience:** Animal Lovers
+
 **MVP features:** adopt a cat or adopt a dog
+
 **Tech Stack:** Express and Node on the backend, React/Redux on the frontend.
+
 **Future plans:** allow users to add animals, allow users to choose which breed displays, put data in a database.
