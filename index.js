@@ -9,6 +9,7 @@ const { PORT, CLIENT_ORIGIN } = require('./config');
 const {dbConnect} = require('./db-knex');
 
 const app = express();
+const Queue = require('./queue');
 
 app.use(
   morgan(process.env.NODE_ENV === 'production' ? 'common' : 'dev', {
@@ -21,6 +22,11 @@ app.use(
     origin: CLIENT_ORIGIN
   })
 );
+
+const catQueue= new Queue();
+const dogQueue = new Queue();
+
+
 
 let cats = [{
   imageURL:'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg', 
@@ -42,6 +48,7 @@ let cats = [{
 }
 
 ];
+
 
 
 let dogs =[{
@@ -67,30 +74,40 @@ let dogs =[{
 
 ];
 
+//add our pets to our queue
+function addPets(pets,queue){
+  for(let i=0; i < pets.length; i++){
+    queue.enqueue(pets[i]);
+  }
+}
+
+addPets(cats,catQueue);
+addPets(dogs,dogQueue);
+
 //add endpoints
 app.get('/api/cat', (req,res) => {
 
-  res.json(cats[0]);
+  res.json(catQueue.peek());
 
 });
 
 app.get('/api/dog', (req,res) => {
 
-  res.json(dogs[0]);
+  res.json(dogQueue.peek());
 
 });
 
 
 app.delete('/api/dog', (req,res) => {
 
-  res.json(dogs.shift());
+  res.json(dogQueue.dequeue());
 
 });
 
 
 app.delete('/api/cat', (req,res) => {
 
-  res.json(cats.shift());
+  res.json(catQueue.dequeue());
  
 });
  
