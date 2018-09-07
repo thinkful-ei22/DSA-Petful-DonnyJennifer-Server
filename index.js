@@ -21,6 +21,7 @@ app.use(
     origin: CLIENT_ORIGIN
   })
 );
+//add endpoints
 
 function runServer(port = PORT) {
   const server = app
