@@ -1,4 +1,4 @@
-'use strict';
+
 
 const express = require('express');
 const cors = require('cors');
@@ -6,7 +6,7 @@ const morgan = require('morgan');
 
 const { PORT, CLIENT_ORIGIN } = require('./config');
 //const { dbConnect } = require('./db-mongoose');
- const {dbConnect} = require('./db-knex');
+const {dbConnect} = require('./db-knex');
 
 const app = express();
 
@@ -45,13 +45,13 @@ let cats = [{
 
 
 let dogs =[{
-    imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
-    imageDescription: 'A smiling golden-brown golden retreiver listening to music.',
-    name: 'Zeus',
-    sex: 'Male',
-    age: 3,
-    breed: 'Golden Retriever',
-    story: 'Owner Passed away'
+  imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
+  imageDescription: 'A smiling golden-brown golden retreiver listening to music.',
+  name: 'Zeus',
+  sex: 'Male',
+  age: 3,
+  breed: 'Golden Retriever',
+  story: 'Owner Passed away'
 },
 {
   imageURL: 'https://images.pexels.com/photos/59523/pexels-photo-59523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -65,7 +65,7 @@ let dogs =[{
 
 
 
-]
+];
 
 //add endpoints
 app.get('/api/cat', (req,res) => {
@@ -83,7 +83,7 @@ app.get('/api/dog', (req,res) => {
 
 app.delete('/api/dog', (req,res) => {
 
- res.json(dogs.shift());
+  res.json(dogs.shift());
 
 });
 
@@ -92,7 +92,7 @@ app.delete('/api/cat', (req,res) => {
 
   res.json(cats.shift());
  
- });
+});
  
 
 
